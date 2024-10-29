@@ -18,6 +18,26 @@ exports.getUsers = async(req, res) => {
     }
 }
 
+// getUser
+exports.getUser = async(req, res) => {
+    try{
+        const {id} = req.params;
+
+        const result = await userModel.findById({_id: id});
+
+        if(result){
+            res.status(200).json({result});
+        }
+        else{
+            res.status(400).json({msg:"Resultados no encontrados!"});
+        }
+    }
+    catch(e){
+        //console.log(e);
+        res.status(500).json({msg:"Internal Server Error!"});
+    }
+}
+
 // postUser
 exports.postUsers = async(req, res) => {
     try{

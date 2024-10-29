@@ -7,6 +7,9 @@ const jsonParser = bodyparser.json();
 // get api READ
 router.get("/user", userController.getUsers);
 
+// get api READ
+router.get("/user/:id", userController.getUser);
+
 // get api CREATE
 router.post("/user", jsonParser, userController.postUsers);
 
