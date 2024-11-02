@@ -10,14 +10,14 @@ router.get("/user", userController.getUsers);
 // get api READ
 router.get("/user/:id", userController.getUser);
 
-// get api CREATE
-router.post("/user", jsonParser, userController.postUsers);
+// post api CREATE
+router.post("/user", jsonParser, userController.postUser);
 
-// get api UPDATE
-router.put("/user", jsonParser, userController.updateUsers);
+// put api UPDATE
+router.put("/user", jsonParser, userController.updateUser);
 
-// get api DELETE
-router.delete("/user/:id", jsonParser, userController.deleteUsers);
+// delete api DELETE
+router.delete("/user/:id", jsonParser, userController.deleteUser);
 
 
 module.exports = router;

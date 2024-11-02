@@ -39,13 +39,13 @@ exports.getUser = async(req, res) => {
 }
 
 // postUser
-exports.postUsers = async(req, res) => {
+exports.postUser = async(req, res) => {
     try{
-        const {firstName, lastName, email, contact, gender, skill} = req.body;
+        const {firstname, lastname, email, contact, gender, skill} = req.body;
 
         const newForm = new userModel({
-            firstName, 
-            lastName, 
+            firstname, 
+            lastname, 
             email, 
             contact, 
             gender, 
@@ -65,9 +65,9 @@ exports.postUsers = async(req, res) => {
 }
 
 // updateUser
-exports.updateUsers = async(req, res) => {
+exports.updateUser = async(req, res) => {
     try{
-        const {id, firstName, lastName, email, contact, gender, skill} = req.body;
+        const {id, firstname, lastname, email, contact, gender, skill} = req.body;
 
         const user = await userModel.findByIdAndUpdate({_id: id}, {
             $set: {
@@ -85,7 +85,7 @@ exports.updateUsers = async(req, res) => {
 }
 
 // deleteUser
-exports.deleteUsers = async(req, res) => {
+exports.deleteUser = async(req, res) => {
     try{
         const {id} = req.params;
 

@@ -13,4 +13,8 @@ export class UserService {
   getUsersList(){
     return this.http.get(this.urlBase + "user");
   }
+
+  createUser(data:any){
+    return this.http.post(this.urlBase + "user", data);
+  }
 }
