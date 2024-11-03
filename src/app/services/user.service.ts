@@ -25,4 +25,8 @@ export class UserService {
   updateUser(data:any){
     return this.http.put(this.urlBase + "user", data);
   }
+
+  deleteUser(id: any){
+    return this.http.delete(this.urlBase + "user/"+id);
+  }
 }

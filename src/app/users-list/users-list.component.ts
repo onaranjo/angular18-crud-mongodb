@@ -18,13 +18,32 @@ export class UsersListComponent {
     this.getData();
   }
 
-  getData(){
+  getData()
+  {
     return this._user.getUsersList().subscribe({next:(resp:any) =>{
       console.log(resp);
       this.userlist = resp.result;
     }, error:(err)=>{
       console.log(err);
     }})
+  }
+
+  deleteUser(id: any)
+  {
+    console.log(id);
+
+    const isConfirm = confirm("Desea eliminar el usuario?")
+
+    if(isConfirm)
+    {
+      this._user.deleteUser(id).subscribe({next:(resp) =>{
+        console.log(resp);
+        this.getData();
+        alert("Usuario eliminado satisfactoriamente !!!");
+      }, error:(err)=>{
+        console.log(err);
+      }})
+    }
   }
 
 }
