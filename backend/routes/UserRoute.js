@@ -4,11 +4,11 @@ const userController = require('../controllers/UserController')
 const bodyparser = require('body-parser');
 const jsonParser = bodyparser.json();
 
-// get api READ
+// get api READ All
 router.get("/user", userController.getUsers);
 
-// get api READ
-router.get("/user/:id", userController.getUser);
+// get api READ One
+router.get("/user/:id", jsonParser, userController.getUser);
 
 // post api CREATE
 router.post("/user", jsonParser, userController.postUser);

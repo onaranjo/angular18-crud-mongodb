@@ -30,8 +30,8 @@ export class UsersCreateComponent {
   }
   
   sumbit(){
-    console.log('kkkkk');
-    console.log(this.userForm.value);
+    //console.log('kkkkk');
+    //console.log(this.userForm.value);
 
     this._userService.createUser(this.userForm.value).subscribe({next:(resp) =>{
       this.userForm.reset();

@@ -14,7 +14,15 @@ export class UserService {
     return this.http.get(this.urlBase + "user");
   }
 
+  getUser(id: any){
+    return this.http.get(this.urlBase + "user/"+id);
+  }
+
   createUser(data:any){
     return this.http.post(this.urlBase + "user", data);
+  }
+
+  updateUser(data:any){
+    return this.http.put(this.urlBase + "user", data);
   }
 }

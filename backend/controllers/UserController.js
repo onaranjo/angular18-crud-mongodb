@@ -23,13 +23,13 @@ exports.getUser = async(req, res) => {
     try{
         const {id} = req.params;
 
-        const result = await userModel.findById({_id: id});
+        const result = await userModel.findOne({_id: id});
 
         if(result){
             res.status(200).json({result});
         }
         else{
-            res.status(400).json({msg:"Resultados no encontrados!"});
+            res.status(400).json({msg:"Usuario no encontrado!"});
         }
     }
     catch(e){
@@ -41,13 +41,14 @@ exports.getUser = async(req, res) => {
 // postUser
 exports.postUser = async(req, res) => {
     try{
-        const {firstname, lastname, email, contact, gender, skill} = req.body;
+        const {firstname, lastname, email, contact, age, gender, skill} = req.body;
 
         const newForm = new userModel({
             firstname, 
             lastname, 
             email, 
             contact, 
+            age,
             gender, 
             skill
         })
@@ -67,12 +68,17 @@ exports.postUser = async(req, res) => {
 // updateUser
 exports.updateUser = async(req, res) => {
     try{
-        const {id, firstname, lastname, email, contact, gender, skill} = req.body;
+        const {id, firstname, lastname, email, contact, age, gender, skill} = req.body;
 
         const user = await userModel.findByIdAndUpdate({_id: id}, {
             $set: {
-                skill: skill,
-                contact: contact
+                firstname: firstname,
+                lastname: lastname,
+                email: email,
+                contact: contact,
+                age: age,
+                gender: gender,
+                skill: skill
             }
         }, {new: true})
 

@@ -11,6 +11,6 @@ export const routes: Routes = [
         path: 'create', component: UsersCreateComponent
     },
     {
-        path: 'update', component: UsersUpdateComponent
+        path: 'update/:id', component: UsersUpdateComponent
     }
 ];
