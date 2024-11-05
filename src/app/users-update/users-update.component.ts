@@ -53,8 +53,6 @@ export class UsersUpdateComponent {
 
     this.updateUserForm.value.id = id;
 
-    //console.log(this.updateUserForm.value);
-    //return false;
     this._userService.updateUser(this.updateUserForm.value).subscribe({next:(resp) =>{
       //this.updateUserForm.reset();
       alert("Update successfuly !!!");
